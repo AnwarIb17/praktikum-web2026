@@ -1,0 +1,433 @@
+/* ===================================================================
+   MODUL 3 - Styling dan Tata Letak Antarmuka dengan CSS
+   Bagian: 1. Pengenalan CSS3  2. Contoh Properti CSS
+   =================================================================== */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+body > header {
+    background-color: white;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+body > header h1 {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Navigation */
+nav {
+    max-width: 900px;
+    margin: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #0d6efd;
+}
+
+/* Main */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+}
+
+/* Gambar */
+main img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+/* Judul */
+h2 {
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-bottom: 5px;
+}
+
+/* Project */
+#project {
+    margin-top: 30px;
+}
+
+article {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+article:last-child {
+    border-bottom: none;
+}
+
+/* Form */
+form {
+    margin-top: 20px;
+}
+
+form p {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 9px 15px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+button[type="reset"] {
+    background-color: #888;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Aside */
+aside {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-left: 3px solid #0d6efd;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Garis <hr> */
+hr {
+    display: none;
+}
+
+/* Tampilan HP */
+@media (max-width: 700px) {
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    main {
+        margin-top: 20px;
+    }
+
+    main img {
+        margin: 0 auto;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+
+/* ===================================================================
+   TUGAS TERSTRUKTUR
+   Perbaikan tampilan: custom accent color, hover effect, dan
+   penyempurnaan layout (font, card, shadow, transisi).
+   Bagian di bawah ini MENIMPA gaya dasar di atas.
+   =================================================================== */
+
+/* Warna Aksen Kustom & Variabel Pendek */
+:root {
+    --accent: #047857;         /* hijau zamrud - menggantikan biru #0d6efd */
+    --accent-hover: #065f46;
+    --accent-soft: #ecfdf5;
+    --dark: #0f172a;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --card: #ffffff;
+    --radius: 10px;
+    --shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 10px 20px rgba(15, 23, 42, 0.12);
+}
+
+/* Tipografi & Warna Teks */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, Arial, sans-serif;
+    color: var(--text);
+    background-color: #f1f5f9;
+    background-image: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Judul Utama dengan Aksen Garis Kiri */
+body > header h1 {
+    color: var(--dark);
+    font-size: 1.9rem;
+    letter-spacing: -0.5px;
+    padding-left: 14px;
+    border-left: 5px solid var(--accent);
+}
+
+/* Navigasi: garis bawah animasi + hover effect */
+nav a {
+    position: relative;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--muted);
+    padding: 6px 2px;
+    transition: color 0.25s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent);
+    border-radius: 3px;
+    transition: width 0.25s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Section sebagai kartu */
+section {
+    background-color: var(--card);
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+section:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+section > h2 {
+    color: var(--accent);
+    font-size: 1.45rem;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-soft);
+}
+
+section > h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin-top: 10px;
+    background-color: var(--accent);
+    border-radius: 3px;
+}
+
+/* Article sebagai kartu proyek */
+article {
+    background-color: #fafafa;
+    padding: 18px;
+    margin-top: 15px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+article:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateX(4px);
+}
+
+article header h3 {
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+article header p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin: 6px 0 10px;
+}
+
+article p {
+    color: var(--text);
+}
+
+/* Judul section "Proyek Unggulan" memakai id yang dipakai di HTML */
+#proyek {
+    margin-top: 0;
+}
+
+/* Aside dengan aksen warna kustom */
+aside {
+    background-color: var(--card);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 22px;
+}
+
+aside h3 {
+    color: var(--accent);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+/* Form: fokus dengan cincin aksen */
+label {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--dark);
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.18);
+}
+
+button {
+    background-color: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 11px 20px;
+    border-radius: 8px;
+    margin-right: 8px;
+    transition: background-color 0.25s ease, transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(4, 120, 87, 0.3);
+}
+
+button[type="reset"] {
+    background-color: var(--muted);
+}
+
+button[type="reset"]:hover {
+    background-color: var(--dark);
+}
+
+/* Footer */
+footer {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-top: 30px;
+    border-top: 1px solid var(--border);
+    background-color: transparent;
+}
+
+/* Tampilan Responsif (penyempurnaan) */
+@media (max-width: 700px) {
+
+    body > header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        align-items: flex-start;
+    }
+
+    section {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    article {
+        padding: 14px;
+    }
+
+    aside {
+        padding: 16px 18px;
+    }
+
+    button {
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+}
