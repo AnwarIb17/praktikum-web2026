@@ -30,6 +30,16 @@ h2 {
   font-size: 22px;
 }
 
+.task-counter {
+  text-align: center;
+  font-size: 13px;
+  color: #475569;
+  background-color: #f1f5f9;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+}
+
 .input-section {
   display: flex;
   gap: 10px;
@@ -133,4 +143,27 @@ button.add-btn:hover {
 
 .delete-btn:hover {
   background-color: #b91c1c;
+}
+
+.clear-completed-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.clear-completed-btn:hover:not(:disabled) {
+  background-color: #fef2f2;
+}
+
+.clear-completed-btn:disabled {
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
 }
