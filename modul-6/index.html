@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+  <h2>Daftar pengguna</h2>
+  <p class="subtitle">Praktikum Asynchronous Javascript & Fetching API</p>
+
+  <!-- Tombol Aksi -->
+   <div class="actions-bar">
+    <button class="btn-primary" id="btnFetch">Muat data pengguna</button>
+  </div>
+
+  <!-- indikator status loading dan pesan error -->
+   <div class="status-msg" id="statusMessage">
+    Klik tombol di atas untuk memuat data pengguna.
+   </div>
+
+   <!-- Container Card pengguna -->
+    <div class="user-grid" id="userList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
